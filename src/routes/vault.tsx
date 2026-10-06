@@ -31,7 +31,7 @@ const ETIQUETTE = ["Never share unreleased audio outside the Vault.", "Confirm c
 
 function Vault() {
   const [tab, setTab] = useState<"embeds" | "wiki">("embeds");
-  const [doc, setDoc] = useState(DOCS[0].key);
+  const [doc, setDoc] = useState(DOCS[0]!.key);
   const [wiki, setWiki] = useState<"glossary" | "sop" | "etiquette">("glossary");
   const active = DOCS.find((d) => d.key === doc)!;
 
