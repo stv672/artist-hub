@@ -22,7 +22,6 @@ const COLS: { key: Status; title: string }[] = [
   { key: "backlog", title: "Backlog" }, { key: "progress", title: "In Progress" }, { key: "review", title: "In Review" }, { key: "done", title: "Completed" },
 ];
 const SLA = [{ key: "ontime", label: "On Time", tone: "success" }, { key: "risk", label: "At Risk", tone: "warning" }, { key: "overdue", label: "Overdue", tone: "danger" }] as const;
-const statusTone = { backlog: "muted", progress: "warning", review: "warning", done: "success" } as const;
 const cellBg = { ontime: "bg-success-soft text-success", risk: "bg-warning-soft text-warning", overdue: "bg-danger-soft text-danger" };
 
 function Tasks() {
@@ -132,7 +131,7 @@ function Tasks() {
                     </select>
                   </td>
                   <td className="px-4 py-3"><Pill tone={SLA.find((s) => s.key === t.sla)!.tone}>{SLA.find((s) => s.key === t.sla)!.label}</Pill></td>
-                  <td className="px-4 py-3 text-muted-foreground"><Pill tone={statusTone[t.status]} className="hidden" />{t.due}</td>
+                  <td className="px-4 py-3 text-muted-foreground">{t.due}</td>
                 </tr>
               ))}
             </tbody>

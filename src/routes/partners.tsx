@@ -25,7 +25,7 @@ function Partners() {
   const moveTo = (brand: string, stage: Stage) => setDeals((ds) => ds.map((d) => (d.brand === brand ? { ...d, stage } : d)));
   const advance = (brand: string, stage: Stage) => {
     const i = STAGES.findIndex((s) => s.key === stage);
-    if (i < STAGES.length - 1) moveTo(brand, STAGES[i + 1].key);
+    if (i < STAGES.length - 1) moveTo(brand, STAGES[i + 1]!.key);
   };
 
   return (
